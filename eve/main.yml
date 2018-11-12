@@ -138,11 +138,6 @@ stages:
     worker: &kube_cluster
       type: kube_pod
       path: eve/workers/zenko.yaml
-      images:
-        ceph: eve/workers/ceph
-      vars:
-        env:
-          CI_CEPH: enabled
       service:
         requests:
           version: "1.9.6"
