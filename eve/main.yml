@@ -147,6 +147,9 @@ stages:
       - Git: *git_pull
       - ShellCommand: *private_registry_login
       - ShellCommand:
+          name: Wait for ceph
+          command: bash eve/workers/ceph/wait_for_ceph.sh
+      - ShellCommand:
           name: Setup Zenko and run end to end tests
           command: make -e VERBOSE=1 test
           workdir: build/tests
