@@ -28,11 +28,7 @@ spec:
       limits:
         cpu: 500m
         memory: 1Gi
-    volumeMounts:
-      - name: artifacts
-        readOnly: false
-        mountPath: /artifacts
-    {%- endif %}
+  {%- endif %}
   volumes:
     - name: docker-socket
       hostPath:
