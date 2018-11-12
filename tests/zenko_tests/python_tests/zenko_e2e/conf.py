@@ -133,7 +133,8 @@ AZURE_CRR_SRC_BUCKET = get_env(
 WASABI_CRR_SRC_BUCKET = get_env(
     'WASABI_CRR_SRC_BUCKET', 'zenko-wasabi-crr-src-bucket')
 DO_CRR_SRC_BUCKET = get_env('DO_CRR_SRC_BUCKET', 'zenko-do-crr-src-bucket')
-CEPH_CRR_SRC_BUCKET = get_env('CEPH_CRR_SRC_BUCKET', 'zenko-ceph-crr-src-bucket')
+CEPH_CRR_SRC_BUCKET = get_env(
+    'CEPH_CRR_SRC_BUCKET', 'zenko-ceph-crr-src-bucket')
 MULTI_CRR_SRC_BUCKET = get_env(
     'MULTI_CRR_SRC_BUCKET_NAME', 'zenko-multi-crr-src-bucket')
 

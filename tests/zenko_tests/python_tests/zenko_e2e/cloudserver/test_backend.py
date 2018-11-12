@@ -62,6 +62,7 @@ def test_ceph_storage(ceph_ep_bucket, ceph_target_bucket, testfile, objkey):
     assert util.check_object(
         objkey, testfile, ceph_ep_bucket, ceph_target_bucket)
 
+
 @pytest.mark.skip(reason='Wasabi Not implemented in CI')
 @pytest.mark.conformance
 def test_wasabi_storage(

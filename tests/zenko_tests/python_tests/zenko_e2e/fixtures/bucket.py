@@ -98,6 +98,7 @@ def digital_crr_ocean_bucket(digital_ocean_resource):
     yield bucket
     util.cleanup_bucket(bucket, delete_bucket=False)
 
+
 @pytest.fixture(scope='session')
 def ceph_bucket(ceph_resource):
     bucket = create_bucket(ceph_resource, conf.CEPH_CRR_TARGET_BUCKET)
@@ -214,6 +215,7 @@ def digital_ocean_loc_bucket(zenko_bucket):
     )
     return zenko_bucket
 
+
 @pytest.fixture
 def ceph_loc_bucket(zenko_bucket):
     loc_config = {'LocationConstraint': conf.CEPH_BACKEND}
@@ -264,12 +266,14 @@ def digital_ocean_crr_bucket(zenko_resource):
     yield bucket
     util.cleanup_bucket(bucket, delete_bucket=False)
 
+
 @pytest.fixture(scope='function')
 def ceph_crr_bucket(zenko_resource):
     bucket = create_bucket(zenko_resource, conf.CEPH_CRR_SRC_BUCKET)
     util.bucket_safe_create(bucket)
     yield bucket
     util.cleanup_bucket(bucket, delete_bucket=False)
+
 
 @pytest.fixture(scope='function')
 def multi_crr_bucket(zenko_resource):
