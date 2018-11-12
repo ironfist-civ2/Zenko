@@ -18,20 +18,20 @@ spec:
     - mountPath: /var/run/docker.sock
       name: docker-socket
   {% if vars.env.CI_CEPH is defined and vars.env.CI_CEPH == "enabled" -%}
-    - name: ceph
-      image: {{ images.ceph }}
-      imagePullPolicy: IfNotPresent
-      resources:
-        requests:
-          cpu: 250m
-          memory: 512Mi
-        limits:
-          cpu: 500m
-          memory: 1Gi
-      volumeMounts:
-        - name: artifacts
-          readOnly: false
-          mountPath: /artifacts
+  - name: ceph
+    image: {{ images.ceph }}
+    imagePullPolicy: IfNotPresent
+    resources:
+      requests:
+        cpu: 250m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+    volumeMounts:
+      - name: artifacts
+        readOnly: false
+        mountPath: /artifacts
     {%- endif %}
   volumes:
     - name: docker-socket
