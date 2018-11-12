@@ -15,6 +15,7 @@ ENV RGW_CIVETWEB_PORT 8001
 
 ADD ./entrypoint-wrapper.sh /
 RUN chmod +x /entrypoint-wrapper.sh && \
+    rm /etc/yum.repos.d/python-rtslib.repo && \
     yum install -y python-pip && \
     yum clean all && \
     pip install awscli && \

@@ -1,0 +1,10 @@
+simulator:
+  name: ceph-in-a-box
+  image:
+    repository: docker.io/tmacro/ceph-in-a-box
+    tag: latest
+    pullPolicy: Always
+  service:
+    externalPort: 80
+    internalPort: 8001
+    type: ClusterIP

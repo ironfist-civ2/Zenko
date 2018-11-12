@@ -23,6 +23,7 @@ HELM_NAMESPACE := testnamespace
 ZENKO_HELM_RELEASE := zenko-test
 ORBIT_HELM_RELEASE := ciutil
 COSBENCH_HELM_RELEASE := zenko-cosbench
+CEPH_HELM_RELEASE := zenko-ceph
 
 # Defaults for our test images
 IMAGE_REGISTRY := docker.io
@@ -143,6 +144,13 @@ install-cosbench:
 		--set driver.logLevel=TRACE \
 		--wait
 .PHONY: install-cosbench
+
+install-ceph:
+	$(HELM) upgrade $(CEPH_HELM_RELEASE) \
+		--namespace $(HELM_NAMESPACE) \
+		--install ../eve/workers/ceph/chart \
+		--wait
+.PHONY: install-ceph
 
 install-zenko:
 ifndef NO_INSTALL
