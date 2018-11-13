@@ -189,7 +189,7 @@ wait-for-ceph: | build-tests
 .PHONY: wait-for-ceph
 
 # Target to install common components need for all tests
-install-common: | install-tiller install-helm-repos install-orbit-simulator install-ceph wait-for-ceph
+install-common: | install-tiller install-helm-repos install-orbit-simulator install-ceph
 .PHONY: install-common
 
 dump-logs: | artifacts
