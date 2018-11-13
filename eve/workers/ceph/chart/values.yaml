@@ -1,4 +1,4 @@
-simulator:
+ceph:
   name: ceph-in-a-box
   image:
     repository: docker.io/tmacro/ceph-in-a-box
