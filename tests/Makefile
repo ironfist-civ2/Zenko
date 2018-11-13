@@ -177,7 +177,7 @@ endif
 .PHONY: install-latest-zenko
 
 # Target to install common components need for all tests
-install-common: | install-tiller install-helm-repos install-orbit-simulator
+install-common: | install-tiller install-helm-repos install-ceph install-orbit-simulator
 .PHONY: install-common
 
 wait-for-zenko: | build-tests
