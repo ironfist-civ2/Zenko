@@ -10,7 +10,7 @@ else
     EP="$1"
 fi
 
-echo 'Waiting for ceph'
+echo "Waiting for ceph at $EP"
 while [ -z "$(curl $EP 2>/dev/null)" ]; do
     sleep 1
     echo -n "."
