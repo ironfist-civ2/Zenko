@@ -88,6 +88,7 @@ cloudserver:
   env:
     MPU_TESTING: 'yes'
     PUSH_STATS: 'false'
+    CI: 'true'
 
 backbeat:
   replication:
