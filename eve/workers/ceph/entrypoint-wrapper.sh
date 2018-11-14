@@ -40,7 +40,7 @@ aws_secret_access_key = verySecretKey1
 EOF
 
 # Enable versioning on them
-for bucket in cephbucket cephbucket2; do
+for bucket in ci-zenko-ceph-target-bucket ci-zenko-ceph-crr-target-bucket; do
     echo "Enabling versioning for $bucket"
     aws --endpoint http://127.0.0.1:8001 s3api  put-bucket-versioning --bucket $bucket --versioning Status=Enabled
 done

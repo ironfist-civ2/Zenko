@@ -110,7 +110,7 @@ WASABI_TARGET_BUCKET = get_env(
 DO_TARGET_BUCKET = get_env(
     'DO_BUCKET_NAME', 'zenko-digitalocean-target-bucket')
 CEPH_TARGET_BUCKET = get_env(
-    'CEPH_BUCKET_NAME', 'zenko-digitalocean-target-bucket')
+    'CEPH_BUCKET_NAME', 'zenko-ceph-target-bucket')
 # The target buckets configured for CR replication
 AWS_CRR_TARGET_BUCKET = get_env(
     'AWS_CRR_BUCKET_NAME', 'zenko-aws-crr-target-bucket')
