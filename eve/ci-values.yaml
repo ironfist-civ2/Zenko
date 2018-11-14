@@ -89,6 +89,7 @@ cloudserver:
     MPU_TESTING: 'yes'
     PUSH_STATS: 'false'
     CI: 'true'
+    S3_END_TO_END: 'true'
 
 backbeat:
   replication:
