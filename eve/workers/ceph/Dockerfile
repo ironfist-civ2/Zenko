@@ -8,7 +8,7 @@ ENV CEPH_DEMO_ACCESS_KEY accessKey1
 ENV CEPH_DEMO_SECRET_KEY verySecretKey1
 ENV CEPH_DEMO_BUCKET zenkobucket
 
-ENV RGW_NAME=zenko-ceph-ceph-in-a-box
+# ENV RGW_NAME=zenko-ceph-ceph-in-a-box
 ENV CEPH_PUBLIC_NETWORK 0.0.0.0/0
 ENV MON_IP 0.0.0.0
 ENV NETWORK_AUTO_DETECT 0

@@ -2,7 +2,7 @@ ceph:
   name: ceph-in-a-box
   image:
     repository: docker.io/tmacro/ceph-in-a-box
-    tag: latest
+    tag: v9
     pullPolicy: Always
   service:
     externalPort: 80

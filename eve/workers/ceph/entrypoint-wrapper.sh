@@ -8,8 +8,12 @@ function get_ip {
     ip -"$ip_version" -o a s "$nic" | grep "scope global" | awk '{ sub ("/..", "", $4); print $4 }' || true
 }
 
+# Do this manually as the setup script breaks somehow
 MON_IP=$(get_ip "eth0" "4")
 export MON_IP
+
+# Strip this line from the setup script to prevent vHost style buckets from being used
+sed -i -e '/rgw dns name = ${RGW_NAME}/d' /demo.sh
 
 touch /artifacts/ceph.log
 mkfifo /tmp/entrypoint_output
@@ -30,7 +34,7 @@ done < /tmp/entrypoint_output
 sed -i -e 's/zenko-ceph-ceph-in-a-box:8001/zenko-ceph-ceph-in-a-box/g' /root/.s3cfg
 
 # Make our buckets - CEPH_DEMO_BUCKET is set to force the "Creating bucket" message, but unused
-s3cmd mb s3://cephbucket s3://cephbucket2
+s3cmd mb s3://ci-zenko-ceph-target-bucket s3://ci-zenko-ceph-crr-target-bucket
 
 mkdir /root/.aws
 cat > /root/.aws/credentials <<EOF
@@ -42,7 +46,7 @@ EOF
 # Enable versioning on them
 for bucket in ci-zenko-ceph-target-bucket ci-zenko-ceph-crr-target-bucket; do
     echo "Enabling versioning for $bucket"
-    aws --endpoint http://127.0.0.1:8001 s3api  put-bucket-versioning --bucket $bucket --versioning Status=Enabled
+    aws --endpoint http://zenko-ceph-ceph-in-a-box s3api  put-bucket-versioning --bucket $bucket --versioning Status=Enabled
 done
 tail -f /var/log/ceph/client.rgw.*.log | tee -a /artifacts/ceph.log
 wait $entrypoint_pid
