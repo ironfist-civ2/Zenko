@@ -83,7 +83,7 @@ global:
 cloudserver:
   image:
     repository: tmacro/cloudserver
-    tag: ceph4
+    tag: ceph5
     pullPolicy: Always
   replicaCount: 3
   replicaFactor: 1
