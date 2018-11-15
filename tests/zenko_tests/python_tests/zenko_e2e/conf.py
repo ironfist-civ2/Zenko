@@ -96,7 +96,7 @@ GCP_ENDPOINT = get_env('GCP_ENDPOINT', 'https://storage.googleapis.com')
 AZURE_ENDPOINT = get_env('AZURE_ENDPOINT', 'http://azure.test:9000')
 WASABI_ENDPOINT = get_env('ZENKO_WASABI_ENDPOINT', 'https://s3.wasabisys.com')
 DO_ENDPOINT = get_env('DO_ENDPOINT', 'https://nyc3.digitaloceanspaces.com')
-CEPH_ENDPOINT = get_env('CEPH_ENDPOINT', 'https://127.0.0.1:8001')
+CEPH_ENDPOINT = get_env('CEPH_ENDPOINT', 'http://zenko-ceph-ceph-in-a-box')
 
 
 # This is the bucket the various cloud backends target
