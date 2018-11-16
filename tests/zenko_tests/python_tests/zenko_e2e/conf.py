@@ -89,7 +89,7 @@ GCP_CRR_BACKEND = get_env('GCP_CRR_BACKEND', 'gcpbackend-crr')
 AZURE_CRR_BACKEND = get_env('AZURE_CRR_BACKEND', 'azurebackend-crr')
 WASABI_CRR_BACKEND = get_env('WASABI_CRR_BACKEND', 'wasabibackend-crr')
 DO_CRR_BACKEND = get_env('DO_CRR_BACKEND', 'dobackend-crr')
-CEPH_CRR_BACKEND = get_env('CEPH_CRR_BACKEND', 'cephbackend-crr')
+CEPH_CRR_BACKEND = get_env('CEPH_CRR_BACKEND', 'cephbackendreplication')
 
 # The endpoints to feed boto3 sdk
 GCP_ENDPOINT = get_env('GCP_ENDPOINT', 'https://storage.googleapis.com')
@@ -172,7 +172,7 @@ AZURE_ACCESS_KEY = get_env('AZURE_ACCOUNT_NAME', error=True)
 AZURE_SECRET_KEY = get_env('AZURE_SECRET_KEY', error=True)
 
 CEPH_ACCESS_KEY = get_env('CEPH_ACCESS_KEY', 'accessKey1')
-CEPH_SECRET_KEY = get_env('CEPH_SECRET_KEY', 'versySecretKey1')
+CEPH_SECRET_KEY = get_env('CEPH_SECRET_KEY', 'verySecretKey1')
 
 ZENKO_ACCESS_KEY = get_env('ZENKO_ACCESS_KEY')
 ZENKO_SECRET_KEY = get_env('ZENKO_SECRET_KEY')
