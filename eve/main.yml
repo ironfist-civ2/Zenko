@@ -190,4 +190,5 @@ stages:
           workdir: build/tests
           maxTime: 43200
           env:
+            S3_FUZZER: enabled
             <<: *global_env
