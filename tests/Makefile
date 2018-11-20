@@ -217,7 +217,7 @@ run-listing-fuzzer:
 		--env COUNT=1
 .PHONY: run-listing-fuzzer
 
-test-listing: | install-common get-latest-commit install-latest-zenko wait-for-zenko arun-listing-fuzzer
+test-listing: | install-common get-latest-commit install-latest-zenko wait-for-zenko run-listing-fuzzer
 .PHONY: test-listing
 
 test-flaky:

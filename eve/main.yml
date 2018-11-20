@@ -186,7 +186,7 @@ stages:
       - ShellCommand: *private_registry_login
       - ShellCommand:
           name: Setup Zenko
-          command: make -e run-listing-fuzzer
+          command: make -e test-listing
           workdir: build/tests
           maxTime: 43200
           env:
