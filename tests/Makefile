@@ -32,6 +32,7 @@ COSBENCH_RUNNER_IMAGE_NAME := cosbench-runner
 
 E2E_POD := zenko-e2e
 COSBENCH_RUNNER_POD := cosbench-runner
+S3FUZZ_POD := s3fuzz-runner
 
 # Set a default tag,
 # but allow us to set all of them using TAG_OVERRIDE
@@ -202,6 +203,21 @@ run-tests: | build-tests
 		--env CLOUDSERVER_ENDPOINT="http://$(ZENKO_HELM_RELEASE)-cloudserver:80" \
 		$(shell ../eve/workers/ci_env.sh env) || (echo "Tests have failed" ; kubectl get pods -L redis-role ; exit 1) >&2
 .PHONY: run-tests
+
+run-listing-fuzzer:
+	$(V)$(KUBECTL) run $(S3FUZZ_POD) \
+		--rm \
+		--restart=Never \
+		--attach=True \
+		--image=tmacro/s3fuzz  \
+		--namespace $(HELM_NAMESPACE) \
+		--env ZENKO_HOST="http://$(ZENKO_HELM_RELEASE)-cloudserver:80" \
+		$(shell ../eve/workers/ci_env.sh env) \
+		--command 1234556789 1
+.PHONY: run-listing-fuzzer
+
+test-listing: | install-common get-latest-commit install-latest-zenko run-listing-fuzzer
+.PHONY: test-listing
 
 test-flaky:
 	$(eval NODE_TEST_TAGS = is:flaky)
