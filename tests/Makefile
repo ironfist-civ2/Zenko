@@ -213,7 +213,7 @@ run-listing-fuzzer:
 		--namespace $(HELM_NAMESPACE) \
 		--env ZENKO_HOST="http://$(ZENKO_HELM_RELEASE)-cloudserver:80" \
 		$(shell ../eve/workers/ci_env.sh env) \
-		--command 1234556789 1
+		-- 1234556789 1
 .PHONY: run-listing-fuzzer
 
 test-listing: | install-common get-latest-commit install-latest-zenko run-listing-fuzzer
