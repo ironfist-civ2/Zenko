@@ -94,7 +94,8 @@ buckets = [
     get_env('WASABI_CRR_SRC_BUCKET_NAME', 'zenko-wasabi-crr-src-bucket'),
     get_env('DO_CRR_SRC_BUCKET_NAME', 'zenko-do-crr-src-bucket'),
     get_env('MULTI_CRR_SRC_BUCKET_NAME', 'zenko-multi-crr-src-bucket'),
-    get_env('TRANSIENT_SRC_BUCKET_NAME', 'ci-zenko-transient-src-bucket')
+    get_env('TRANSIENT_SRC_BUCKET_NAME', 'ci-zenko-transient-src-bucket'),
+    'fuzzbucket'
 ]
 
 s = Session(aws_access_key_id=ZENKO_ACCESS_KEY,
