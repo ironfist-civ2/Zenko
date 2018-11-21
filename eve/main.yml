@@ -202,3 +202,5 @@ stages:
             ZENKO_BUCKET: fuzzbucket-nonver
             VERSIONED: disabled
             <<: *global_env
+      - ShellCommand: *dump_logs
+      - Upload: *upload_artifacts
