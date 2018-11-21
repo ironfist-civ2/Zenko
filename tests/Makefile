@@ -209,7 +209,7 @@ run-listing-fuzzer:
 		--rm \
 		--restart=Never \
 		--attach=True \
-		--image=tmacro/s3fuzz:7 \
+		--image=tmacro/s3fuzz:8 \
 		--namespace $(HELM_NAMESPACE) \
 		--env ZENKO_HOST="http://$(ZENKO_HELM_RELEASE)-cloudserver:80" \
 		--env SEED=$(shell date '+%s') \
