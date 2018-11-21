@@ -200,4 +200,5 @@ stages:
           maxTime: 43200
           env:
             ZENKO_BUCKET: fuzzbucket-nonver
+            VERSIONED: disabled
             <<: *global_env
