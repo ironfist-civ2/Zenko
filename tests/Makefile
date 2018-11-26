@@ -209,12 +209,13 @@ run-listing-fuzzer:
 		--rm \
 		--restart=Never \
 		--attach=True \
-		--image=tmacro/s3fuzz:19 \
+		--image=tmacro/s3fuzz:20 \
 		--namespace $(HELM_NAMESPACE) \
 		--env ZENKO_HOST="http://$(ZENKO_HELM_RELEASE)-cloudserver:80" \
 		--env SEED=$(shell date '+%s') \
 		--env COUNT=1 \
 		--env ZENKO_BUCKET=$(ZENKO_BUCKET) \
+		--env AWS_BUCKET=ci-zenko-s3-fuzzer \
 		--env VERSIONED=$(VERSIONED) \
 		--env ANTITIMEOUT=1 \
 		--env NO_SERVICES=1 \
