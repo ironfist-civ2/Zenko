@@ -219,6 +219,7 @@ run-listing-fuzzer:
 		--env VERSIONED=$(VERSIONED) \
 		--env ANTITIMEOUT=1 \
 		--env NO_SERVICES=1 \
+		--env LOGGING_LOGLVL=debug \
 		$(shell ../eve/workers/ci_env.sh env)
 .PHONY: run-listing-fuzzer
 
