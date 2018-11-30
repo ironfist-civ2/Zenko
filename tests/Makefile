@@ -209,7 +209,7 @@ run-listing-fuzzer:
 		--rm \
 		--restart=Never \
 		--attach=True \
-		--image=tmacro/s3fuzz:50 \
+		--image=tmacro/s3fuzz:51 \
 		--namespace $(HELM_NAMESPACE) \
 		--env ZENKO_HOST="http://$(ZENKO_HELM_RELEASE)-cloudserver:80" \
 		--env COUNT=1 \
@@ -218,7 +218,6 @@ run-listing-fuzzer:
 		--env VERSIONED=$(VERSIONED) \
 		--env ANTITIMEOUT=1 \
 		--env NO_SERVICES=1 \
-		--env LOGGING_LOGLVL=debug \
 		$(shell ../eve/workers/ci_env.sh env)
 .PHONY: run-listing-fuzzer
 		# --env SEED=$(shell date '+%s') \
