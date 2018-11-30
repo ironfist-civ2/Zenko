@@ -209,10 +209,11 @@ run-listing-fuzzer:
 		--rm \
 		--restart=Never \
 		--attach=True \
-		--image=tmacro/s3fuzz:51 \
+		--image=tmacro/s3fuzz:52 \
 		--namespace $(HELM_NAMESPACE) \
 		--env ZENKO_HOST="http://$(ZENKO_HELM_RELEASE)-cloudserver:80" \
 		--env COUNT=1 \
+		--env SEED=$(shell date '+%s') \
 		--env ZENKO_BUCKET=$(ZENKO_BUCKET) \
 		--env AWS_BUCKET=ci-zenko-s3-fuzzer \
 		--env VERSIONED=$(VERSIONED) \
@@ -220,7 +221,6 @@ run-listing-fuzzer:
 		--env NO_SERVICES=1 \
 		$(shell ../eve/workers/ci_env.sh env)
 .PHONY: run-listing-fuzzer
-		# --env SEED=$(shell date '+%s') \
 
 test-listing: | install-common get-latest-commit install-zenko wait-for-zenko run-listing-fuzzer
 .PHONY: test-listing
