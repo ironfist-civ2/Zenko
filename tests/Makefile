@@ -212,7 +212,6 @@ run-listing-fuzzer:
 		--image=tmacro/s3fuzz:47 \
 		--namespace $(HELM_NAMESPACE) \
 		--env ZENKO_HOST="http://$(ZENKO_HELM_RELEASE)-cloudserver:80" \
-		--env SEED=$(shell date '+%s') \
 		--env COUNT=1 \
 		--env ZENKO_BUCKET=$(ZENKO_BUCKET) \
 		--env AWS_BUCKET=ci-zenko-s3-fuzzer \
@@ -222,6 +221,7 @@ run-listing-fuzzer:
 		--env LOGGING_LOGLVL=debug \
 		$(shell ../eve/workers/ci_env.sh env)
 .PHONY: run-listing-fuzzer
+		# --env SEED=$(shell date '+%s') \
 
 test-listing: | install-common get-latest-commit install-zenko wait-for-zenko run-listing-fuzzer
 .PHONY: test-listing
